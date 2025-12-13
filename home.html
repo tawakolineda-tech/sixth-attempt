@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fa"dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رستورانت زیتون</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- header section start -->
+<div class="header">
+<div class="header-logo">
+    <i class="fa-solid fa- kitchen-set"> 
+    </i>
+    <h3>رستورانت زیتون</h3>
+</div>
+<div class="btn-icon">
+    <button class="btn-login">ثبت نام / ورود</button>
+    <i class="fa-solid fa-cart-plus">
+    </i>
+</div>
+</div>
+<!-- the end of header section -->
+ <!-- navbar section started -->
+  <nav class="navbar">
+    <ul class="main-ul">
+        <li><a href="">
+            خانه
+        </a></li>
+        <li><a href="" id="m">
+            مینیوی غذایی
+        </a></li>
+            <li><a href="">
+                افغانی
+            </a></li>
+            <li><a href="">
+                ایرانی
+            </a></li>
+            <li><a href="">
+                فست فوت
+            </a></li>    
+        <li><a href="">
+            تماس
+        </a></li>
+        <li><a href="">
+            درباره
+        </a></li>
+        <li><a href="">
+            تماس
+        </a></li>
+    </ul>
+</nav>
+</div>
+<section class="hero">
+    <div class="hero-form">
+        <form action=""class="form-hero">
+            <select name="" id="">
+                <option value="">رزور میز</option>
+                    <option value="">رزور اتاق</option>
+          
+            <input type="number"placholder="تعداد افراد">
+            <input type="number"placholder="تعداد روزهایی اقامت">
+        </select>
+            <button>جستجو</button>
+        </form>
+    </div>
+</section>
+<!-- hero section ended -->
+ <!-- start of banner -->
+<section class="banners">
+    <div class="big-banner">
+        <div class="banner-text">
+            <h3>سفر به جاغوری</h3>
+            <p>مکان دلپذیر با محیط زیبا</p>
+        </div>
+    </div>
+    <div class="small-banner">
+        <div class="sm-1">
+    <div class="sm-banner-text">
+        <h3>
+اپارتمان های مجلل
+        </h3>
+        <p>
+اسایش را باما تجربه نمایید
+        </p>
+    </div>
+    </div>
+    <div class="sm-2">
+        <div class="sm-banner-text">
+             <h3>اپارتمان های مجلل</h3>
+             <p>اسایش را با ما تجربه نمایید</p>
+        </div>
+    </div>
+    </div>
+    
+</section>
+<!-- banner section ended -->
+ <!-- start of apartment adds -->
+<script src="app.js">
+    const clic=document.getElementById("click");
+const navm=document.getElementById("navm");
+const order=document.getElementById("order-ul");
+const orderul=document.getElementById("order");
+const service=document.getElementById("service");
+const serviceM=document.getElementById("service-M");
+const contact=document.getElementsById("contact");
+const contactM=document.getElementById("contactM");
+contact.addEventLisener("click",()=>{
+    if(contactM.style,display=="block"){
+        contactM.style.display="none";
+    }
+    else{
+        contactM.style.display="block";
+    }
+});
+service.addEventLisener("click",()=>{
+    if(serviceM.style.display=="block"){
+        serviceM.style.display="none"
+    }
+    else{
+        serviceM.style.display="block";
+    }
+});
+click.addEventLisener("click",()=>{
+    if(navm.style.display=="block"){
+        navm.style.display="none"
+    }
+    else{
+        navm.style.display="block";
+    }
+});
+// order.addEventLisener("click",()=>{
+//     if(order-ul.style.display=="block"){
+//         order-ul.style.display="none"
+//     }
+//     else{
+//         order-ul.style.display= "block";
+//     }
+
+</script>
+</body>
+</html>
