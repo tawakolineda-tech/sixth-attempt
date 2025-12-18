@@ -1,19 +1,22 @@
 <?php
 include("connection.php");
-if(isset($_POST["coursename"])){
-  $courseName =$_POST["courseName"];
-  $courseFees = $_POST["coursefees"];
-  $courseDepId = $_POST["dep_id"];
- $allcourse = "SELECT course_name,fees, FROM course WHERE course_name='$courseName' AND fees ='$courseFees'";
- $result = $connect->query($allcourse);
- if($result->num_rows>0){
-    echo"<script>alert('Sorry this information course already exsits')</script>";
- }
- else{
-    $connect->query("INSERT INTO course(course_name,fees,dep_id) values ('$courseName','$courseFees','$courseDepId')");
-    echo "date inserted";
- }
+if(isset($_POST["stdName"])){
+    $stdName = $_POST["stdName"];
+    $stdLastName = $_POST["stdLastName"];
+    $fatherName = $_POST["fatherName"];
+    $stdtazkira = $_POST["stdtazkira"];
+    $stdphone = $_POST["stdphone"];
+    $stdfees = $_POST["stdfees"];
+    $allstudent = "SELECT std_name,std_lastname,std_tazkira FROM student WHERE std_name = '$stdName' AND std_lastname = '$stdLastName' AND std_tazkira = '$stdtazkira'";
+    $result = $connect->query($allstudent);
+   if($result->num_rows>0){
+    echo"<script>alert('Sorry This information students already exist')</script>";
+   }
+   else{
+   $connect->query("INSERT INTO student(std_name,std_lastname,father_name,std_tazkira,phone_num,fee_paid) values('$stdName','$stdLastName','$fatherName','$stdtazkira','$stdphone','$stdfees')");
+   }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,17 +103,20 @@ if(isset($_POST["coursename"])){
             <h1 class="text-3xl">Admin dashboard</h1>
            </div> 
            <div class="flex items-center space-x-4 px-4 text-3xl gap-2">
-            <h1><a href="dash.php">Home</a>
+            <h1>Home
             <i>›</i>
-            Insert Course
+            Insert Instructor
             </h1>
 </div> 
     <div class="w-full  items-center flex gap-5 p-5 h-screen  flex-col">
         <h1 class="text-3xl font-bold text-center mb-4">Add Student</h1>
           <form class="p-11 w-[70%] h-[65%] border flex items-center  rounded-xl  flex-col gap-5 shadow-2xl" action=<?php echo $_SERVER["PHP_SELF"]?> method="post">
-            <input name = "courseName" type="text" placeholder="please enter course name" class="w-[60%] border outline-0 my-5 h-[13%]">
-            <input name = "coursefees" type="text" placeholder="please enter course fees" class="w-[60%] border outline-0 my-5 h-[13%]">
-            <input name = "dep_id" type="text" placeholder="please enter course department id" class="w-[60%] border outline-0 my-5 h-[13%]">
+            <input name = "stdName" type="text" placeholder="please enter instructor name" class="w-[60%] border outline-0 my-5 h-[13%]">
+            <input name = "stdLastName" type="text" placeholder="please enter student lastname" class="w-[60%] border outline-0 my-5 h-[13%]">
+            <input name = "fatherName" type="text" placeholder="please enter student fathername" class="w-[60%] border outline-0 my-5 h-[13%]">
+            <input name = "stdtazkira" type="text" placeholder="please enter student phone number" class="w-[60%] border outline-0 my-5 h-[13%]">
+            <input name = "stdphone" type="text" placeholder="please enter student tazkera number" class="w-[60%] border outline-0  my-5 h-[13%]">
+            <input name = "stdfees" type="text" placeholder="please enter student fees" class="w-[60%] border outline-0  my-5 h-[13%]">
             <input type="submit" value="save" class="px-5 h-[13%] bg-orange-300 text-white w-[20%] rounded-xl">
           </form>
           </div>

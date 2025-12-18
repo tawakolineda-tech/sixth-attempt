@@ -1,15 +1,18 @@
 <?php
 include("connection.php");
-if(isset($_POST["Department"])){
-    $newdepName = $_POST["Department"];
-    $allDep = "SELECT dep_name FROM department where dep_name='$newdepName'";
-    $result = $connect->query($allDep);
+if(isset($_POST["insName"])){
+    $insName = $_POST["insName"];
+    $insLastName = $_POST["insLastName"];
+    $insPhone = $_POST["insPhone"];
+    $insDegree = $_POST["insDegree"];
+    $allinstructor = "SELECT ins_name,ins_lastname,phone_num FROM instructor WHERE ins_name = '$insName' AND ins_lastname = '$insLastName' AND phone_num ='$insPhone'";
+    $result = $connect->query($allinstructor);
    if($result->num_rows>0){
-    echo "<script>alert('Sorry This department already exist')</script>";
-   
+    echo "<script>alert('Sorry This information instructor already exist')</script>";
    }
    else{
-    $connect->query("INSERT INTO  department(dep_name) values('$newdepName')");
+    $q = "INSERT INTO instructor(ins_name,ins_lastname,phone_num,degree) values('$insName','$insLastName','$insPhone','$insDegree')";
+    $connect->query($q);
    }
 }
 ?>
@@ -29,7 +32,7 @@ if(isset($_POST["Department"])){
 
    <div class="aside">
     <div class="header">
-        <img src="../src/img/nav.jpg" alt="">
+      <img src="../src/img/nav.jpg" class="" alt="">
         <h1>AKKHOR</h1>
         <i class="fa-solid fa-bars-taggered">≡</i>
     </div>
@@ -43,29 +46,29 @@ if(isset($_POST["Department"])){
     <div class="items">
         <i>௹</i>
         <div class="items-content">
-            <a href="InsertDep.php"><h1>Department</h1></a>
+           <a href="InsertDep.php"><h1>Department</h1></a>
             <i style="font-size:50px;">›</i>
         </div>
     </div>
     <div class="items">
         <i>௹</i>
         <div class="items-content">
-           <a href="insertInstructor.php"><h1>Instructor</h1></a> 
+           <a href="inserinstructor.php"><h1>Teachers</h1></a> 
             <i style="font-size:50px;">›</i>
         </div>
     </div>
     <div class="items">
         <i>௹</i>
         <div class="items-content">
-           <a href="insertstudent.php"><h1>Student</h1> </a>
+            <a href="insertstudent.php"><h1>Student</h1></a>
             <i style="font-size:50px;">›</i>
         </div>
     </div>
-  
+   
     <div class="items">
         <i>௹</i>
         <div class="items-content">
-           <a href="insertcourse.php"><h1>Course</h1></a>
+            <h1>Library</h1>
             <i style="font-size:50px;">›</i>
         </div>
     </div>
@@ -100,14 +103,17 @@ if(isset($_POST["Department"])){
            <div class="flex items-center space-x-4 px-4 text-3xl gap-2">
             <h1>Home
             <i>›</i>
-            Insert Department
+            Insert Instructor
             </h1>
 </div> 
     <div class="w-full  items-center flex gap-5 p-5 h-screen  flex-col">
-        <h1 class="text-3xl font-bold text-center mb-4">Add Department</h1>
-          <form class="p-11 w-[60%] h-[30%] border flex items-center  rounded-2xl  flex-col gap-5" action=<?php echo $_SERVER["PHP_SELF"]?> method="post">
-            <input name = "Department" type="text" placeholder="please enter department name" class="w-[60%] border outline-0 my-22 h-[30%]">
-            <input type="submit" value="save" class="px-5 h-[22%] bg-orange-300 text-white w-[20%] rounded-xl">
+        <h1 class="text-3xl font-bold text-center mb-4">Add Instructor</h1>
+          <form class="p-11 w-[70%] h-[57%] border flex items-center  rounded-2xl  flex-col gap-5" action=<?php echo $_SERVER["PHP_SELF"]?> method="post">
+            <input name = "insName" type="text" placeholder="please enter instructor name" class="w-[60%] border outline-0 my-5 h-[13%]">
+            <input name = "insLastName" type="text" placeholder="please enter instructor lastname" class="w-[60%] border outline-0 my-5 h-[13%]">
+            <input name = "insPhone" type="text" placeholder="please enter instructor phone number" class="w-[60%] border outline-0 my-5 h-[13%]">
+            <input name = "insDegree" type="text" placeholder="please enter instructor degree " class="w-[60%] border outline-0  my-5 h-[13%]">
+            <input type="submit" value="save" class="px-5 h-[13%] bg-orange-300 text-white w-[20%] rounded-xl">
           </form>
           </div>
            </div>
