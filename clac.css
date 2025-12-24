@@ -1,0 +1,54 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gainsboro;
+}
+form{
+    padding: 8px;
+    width: 50%;
+    margin: 122px auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(192, 238, 192); 
+    border-radius: 12px;
+}
+form input,select{
+    height: 30px;
+    border-radius: 8px;
+    outline: 0;
+    margin: 12px 0;
+}
+.error{
+    color:red;
+    text-align: center;
+    font-size: 18px;
+}
+.result{
+    color:black;
+    text-align: center;
+    font-size: 18px;
+    background-color: green;
+    padding: 12px 30px;
+}
+form>button{
+    padding: 12px 23px;
+    background-color: palevioletred;
+    color: white;
+    border: 0;
+    width: fit-content;
+    margin: 0 auto;
+}
+form input:focus{
+    outline: 0;
+}
+form label{
+    font-family: monospace;
+    margin: 4px 0;
+    font-size: 23px;
+}
+error1{
+    background-color: red;
+    color: white;
+}
