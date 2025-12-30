@@ -1,29 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Student;
-use Illuminate\Http\Request;
 
-class StudentController extends Controller
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class studentController extends Controller
 {
     //
-    // public function index(){
-    //     $students =  Student::with('user')->get();
-    //     return $students;
+    // public function index($id,$name){
+    //    return view("home",compact('id','name')); 
+    //    return "Hi to" . $name . "with id" . $id;
     // }
-    // ------------------------------------------------
-    // public function index(){
-    //   $students =   Student::with('subject','teacher')->get();
-    //   return $students;
-    // }
-    public function index(){
-     $students = Student::where("user_id",">",50)->orWhere("classes_id","<",40)->orderBy("name","asc")->get();
-     return $students;
+    public function index($name,$id){
+        return "Hi to ".$name." with Id ".$id;
     }
-
-    // public function show(){
-    //   $student =  Student::whereBetween("classes_id",20,40);
-    //  return $student;
-    // }
-
+    public function contactus(){
+        return "about details contactus us text comes to controller";
+    }
+   
+    
 }
+// <!-- <h1>I'am {{$name}} with id {{$id}}</h1> -->
+
